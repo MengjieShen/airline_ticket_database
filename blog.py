@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, session
 import mysql.connector
-print("猪猪猪")
+print("you are a pig")
 
 #Initialize the app from Flask
 app = Flask(__name__)
@@ -89,10 +89,10 @@ def home():
     cursor = conn.cursor();
     query = "SELECT ts, blog_post FROM blog WHERE username = '{}' ORDER BY ts DESC"
     cursor.execute(query.format(username))
-    data1 = cursor.fetchall() 
+    data1 = cursor.fetchall()
     cursor.close()
     return render_template('home.html', username=username, posts=data1)
-	
+
 @app.route('/post', methods=['GET', 'POST'])
 def post():
 	username = session['username']
@@ -108,7 +108,7 @@ def post():
 def logout():
 	session.pop('username')
 	return redirect('/')
-	
+
 app.secret_key = 'some key that you will never guess'
 #Run the app on localhost port 5000
 #debug = True -> you don't have to restart flask
