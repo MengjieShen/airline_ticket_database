@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, url_for, redirect, session
 import mysql.connector
-print("hhhhhhh")
+print("猪猪猪")
+
 #Initialize the app from Flask
 app = Flask(__name__)
 
