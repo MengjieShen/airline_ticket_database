@@ -18,7 +18,7 @@
 <script src="js/menu_jquery.js"></script>
 <!-- //login-pop-up -->
 <!-- animation-effect -->
-<link href="css/animate.min.css" rel="stylesheet">
+<!-- <link href="css/animate.min.css" rel="stylesheet"> -->
 <script src="js/wow.min.js"></script>
 <script>
  new WOW().init();
@@ -36,9 +36,9 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="index.html">Home</a></li>
-						<li><a href="register.html">Register</a></li>
-						<li><a href="login.html">Login</a></li>
+						<li class="active"><a href="/">Home</a></li>
+						<li><a href="register">Register</a></li>
+						<li><a href="login">Login</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</nav>
@@ -55,50 +55,49 @@
 				</div>
 			</div>
 			<div class="banner-posit animated wow zoomIn" data-wow-delay=".5s">
+				<form action="/SearchFlightAuth" method="POST">
 				<h2><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>Search A Flight</h2>
 				<div class="reservation">
-					 <h5>Date</h5>
+					<h5>Date</h5>
 					<div class="book_date">
-						 <form>
 							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-							<input class="date" id="datepicker" type="text" value="20/11/2020" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '19/10/2016';}" required="">
-						 </form>
+							<input class="date" name = "date" id="datepicker" type="text" value="20/11/2020" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '19/10/2016';}" required="">
 					</div>
 					 <h5>From</h5>
-					 <!---start section_room----------->
 					 <div class="section_room">
-
 								<div class="input-group animated wow slideInUp">
 									<span class="input-group-addon" id="basic-addon1"></span>
-									<input type="text" class="form-control" placeholder="Your Depature" aria-describedby="basic-addon1">
+									<input type="text" class="form-control" name = "depature" placeholder="Your Depature" aria-describedby="basic-addon1">
 								</div>
-
 					 </div>
 					 <h5>To</h5>
 					 <div class="section_room">
-
 								<div class="input-group animated wow slideInUp">
 									<span class="input-group-addon" id="basic-addon1"></span>
-									<input type="text" class="form-control" placeholder="Your Arrival" aria-describedby="basic-addon1">
+									<input type="text" class="form-control" name = "arrival" placeholder="Your Arrival" aria-describedby="basic-addon1">
 								</div>
-
 					 </div>
 					 <h5>Flight Number</h5>
-					 <!---start section_room----------->
 					 <div class="section_room">
-
 								<div class="input-group animated wow slideInUp">
 									<span class="input-group-addon" id="basic-addon1"></span>
-									<input type="text" class="form-control" placeholder="Flight Number" aria-describedby="basic-addon1">
+									<input type="text" class="form-control" name = "flight number" placeholder="Flight Number" aria-describedby="basic-addon1">
 								</div>
-
 					 </div>
-					<div class="book">
-						<form>
+						<div class="book">
 							<input type="submit" value="Search">
-						</form>
-					</div>
+						</div>
+						<!-- 不一定用 -->
+						<div class="col-lg-6 in-gp-tb">
+							<div class="input-group">
+								<span class="input-group-btn">
+									<input class="btn btn-default" type="submit" value = Search />
+								</span>
+							</div><!-- /input-group -->
+						</div><!-- /.col-lg-6 -->
+						<!-- 不一定用 -->
 				</div>
+			</form>
 			</div>
 		</div>
 	</div>

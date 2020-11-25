@@ -1,15 +1,16 @@
 from flask import Flask, render_template, request, url_for, redirect, session
 import mysql.connector
-print("you are a pig")
 
 #Initialize the app from Flask
-app = Flask(__name__)
+app = Flask(__name__,
+			static_url_path="/",
+            static_folder="static")
 
 #Configure MySQL
 conn = mysql.connector.connect(host='localhost',
                                user='root',
-                               password='1',
-                               database='flask')
+                               password='12345678',
+                               database='Airline')
 
 
 #Define a route to hello function
@@ -39,7 +40,7 @@ def loginAuth():
 	#cursor used to send queries
 	cursor = conn.cursor()
 	#executes query
-	query = "SELECT * FROM user WHERE username = '{}' and password = '{}'"
+	query = "SELECT * FROM user WHERE name = '{}' and password = '{}'"
 	cursor.execute(query.format(username, password))
 	#stores the results in a variable
 	data = cursor.fetchone()
@@ -57,17 +58,17 @@ def loginAuth():
 		return render_template('login.html', error=error)
 
 #Authenticates the register
-@app.route('/registerAuth', methods=['GET', 'POST'])
-def registerAuth():
+@app.route('/AgentRegisterAuth', methods=['GET', 'POST'])
+def AgentRegisterAuth():
 	#grabs information from the forms
-	username = request.form['username']
+	name = request.form['username']
 	password = request.form['password']
 
 	#cursor used to send queries
 	cursor = conn.cursor()
 	#executes query
-	query = "SELECT * FROM user WHERE username = '{}'"
-	cursor.execute(query.format(username))
+	query = "SELECT * FROM customer1 WHERE name = '{}'"
+	cursor.execute(query.format(name))
 	#stores the results in a variable
 	data = cursor.fetchone()
 	#use fetchall() if you are expecting more than 1 data row
@@ -77,8 +78,8 @@ def registerAuth():
 		error = "This user already exists"
 		return render_template('register.html', error = error)
 	else:
-		ins = "INSERT INTO user VALUES('{}', '{}')"
-		cursor.execute(ins.format(username, password))
+		ins = "INSERT INTO customer1 VALUES('{}', '{}')"
+		cursor.execute(ins.format(name, password))
 		conn.commit()
 		cursor.close()
 		return render_template('index.html')
