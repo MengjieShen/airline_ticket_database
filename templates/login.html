@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<!-- 记得写登陆失败的情况！ -->
+<!-- 密码加密 -->
+
+<html>
+<head>
+<title>Login</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<!-- login-pop-up -->
+<script src="js/menu_jquery.js"></script>
+<!-- //login-pop-up -->
+<!-- animation-effect -->
+<!-- <link href="css/animate.min.css" rel="stylesheet"> -->
+<script src="js/wow.min.js"></script>
+<script>
+ new WOW().init();
+</script>
+<!-- //animation-effect -->
+<link href='#css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='#css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<!-- header -->
+<div class="header-top">
+	<div class="container">
+		<div class="header-top-right">
+			<!-- login for customer -->
+			<ul class="nav navbar-nav">
+				<li><a href="register">Register</a></li>
+				<li><a href="login">Login</a></li>
+			</ul>
+			<!-- login for customer -->
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+</div>
+	<div class="header-nav">
+		<div class="container">
+			<nav class="navbar navbar-default">
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="index">Home</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</nav>
+		</div>
+	</div>
+<!-- //header -->
+
+<!--typography-page -->
+	<div class="typo">
+		<div class="container">
+			<h3 class="title animated wow zoomIn">Log In </h3>
+			<div class="grid_3 grid_5 animated wow slideInUp">
+				<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+					<ul id="myTab" class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Log In As Customer</a></li>
+						<li role="presentation"><a href="#AgentLogin" role="tab" id="AgentLogin-tab" data-toggle="tab" aria-controls="AgentLogin">Log In As Booking Agent</a></li>
+						<li role="presentation"><a href="#StaffLogin" role="tab" id="StaffLogin-tab" data-toggle="tab" aria-controls="StaffLogin">Log In As Airline Staff</a></li>
+					</ul>
+
+					<div id="myTabContent" class="tab-content">
+						<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+							<form action="/CustomerLoginAuth" method="POST">
+								<h5>Email</h5>
+								<input type="text" class="form-control" name = "email" placeholder="Email" aria-describedby="basic-addon1" required/></br>
+								<h5>Password</h5>
+								<input type="password" class="form-control" name = "password" placeholder="Password" aria-describedby="basic-addon1" required/></br>
+								<div class="col-lg-6 in-gp-tb">
+									<div class="input-group">
+										<span class="input-group-btn">
+											<input class="btn btn-default" type="submit" value = Login />
+										</span>
+									</div><!-- /input-group -->
+								</div><!-- /.col-lg-6 -->
+							</form>
+						</div>
+
+						<div role="tabpanel" class="tab-pane fade" id="AgentLogin" aria-labelledby="AgentLogin-tab">
+							<form action="/AgentLoginAuth" method="POST">
+								<h5>Email</h5>
+								<input type="text" class="form-control" name = "email" placeholder="Email" aria-describedby="basic-addon1" required/></br>
+								<h5>Password</h5>
+								<input type="password" class="form-control" name = "password" placeholder="Password" aria-describedby="basic-addon1" required/></br>
+								<div class="col-lg-6 in-gp-tb">
+									<div class="input-group">
+										<span class="input-group-btn">
+											<input class="btn btn-default" type="submit" value = Login />
+										</span>
+									</div><!-- /input-group -->
+								</div><!-- /.col-lg-6 -->
+							</form>
+						</div>
+
+						<div role="tabpanel" class="tab-pane fade" id="StaffLogin" aria-labelledby="StaffLogin-tab">
+							<form action="/StaffLoginAuth" method="POST">
+								<h5>Username</h5>
+								<input type="text" class="form-control" name = "username" placeholder="Username" aria-describedby="basic-addon1" required/></br>
+								<h5>Password</h5>
+								<input type="password" class="form-control" name = "password" placeholder="Password" aria-describedby="basic-addon1" required/></br>
+								<div class="col-lg-6 in-gp-tb">
+									<div class="input-group">
+										<span class="input-group-btn">
+											<input class="btn btn-default" type="submit" value = Login />
+										</span>
+									</div><!-- /input-group -->
+								</div><!-- /.col-lg-6 -->
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% if error %}
+	<script>
+		alert("Fail in logging in!");
+	</script>
+	{% endif %}
+<!-- //typography-page -->
+<!-- footer -->
+<div class="footer-copy">
+	<div class="container">
+		<div class="footer-left animated wow slideInUp">
+			<p>Copyright Tianyu Zhang & Jennie Shen.</p>
+		</div>
+	</div>
+</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+</body>
+</html>

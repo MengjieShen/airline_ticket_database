@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Register</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<!-- login-pop-up -->
+<script src="js/menu_jquery.js"></script>
+<!-- //login-pop-up -->
+<!-- animation-effect -->
+<!-- <link href="css/animate.min.css" rel="stylesheet"> -->
+<script src="js/wow.min.js"></script>
+<script>
+ new WOW().init();
+</script>
+<!-- //animation-effect -->
+<link href='#css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='#css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<!-- header -->
+<div class="header-top">
+	<div class="container">
+		<div class="header-top-right">
+			<!-- login for customer -->
+			<ul class="nav navbar-nav">
+				<li><a href="register">Register</a></li>
+				<li><a href="login">Login</a></li>
+			</ul>
+			<!-- login for customer -->
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+</div>
+	<div class="header-nav">
+		<div class="container">
+			<nav class="navbar navbar-default">
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="index">Home</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</nav>
+		</div>
+	</div>
+<!-- //header -->
+<!--typography-page -->
+	<div class="typo" style="padding: 0;">
+		<div class="container">
+			<h3 class="title animated wow zoomIn">Register</h3>
+			<div class="grid_3 grid_5 animated wow slideInUp">
+				<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+					<ul id="myTab" class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Register As Customer</a></li>
+						<li role="presentation"><a href="#RegisterAsBookingAgent" role="tab" id="RegisterAsBookingAgent-tab" data-toggle="tab" aria-controls="profile">Register As Booking Agent</a></li>
+						<li role="presentation"><a href="#RegisterAsStaff" role="tab" id="RegisterAsStaff-tab" data-toggle="tab" aria-controls="profile">Register As Airline Staff</a></li>
+					</ul>
+
+					<div id="myTabContent" class="tab-content">
+						<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+							<form action="/CustomerRegisterAuth" method="POST">
+									<h5>Email</h5>
+									<input type="text" class="form-control" name = "email" placeholder="Email" aria-describedby="basic-addon1" required/></br>
+									<h5>Name</h5>
+									<input type="text" class="form-control" name = "name" placeholder="Name" aria-describedby="basic-addon1" required/></br>
+									<h5>Password</h5>
+									<input type="text" class="form-control" name = "password" placeholder="Password" aria-describedby="basic-addon1" required/></br>
+									<h5>Building number</h5>
+									<input type="text" class="form-control" name = "building_number" placeholder="Building number" aria-describedby="basic-addon1" required/></br>
+									<h5>Street</h5>
+									<input type="text" class="form-control" name = "street" placeholder="Street" aria-describedby="basic-addon1" required/></br>
+									<h5>City</h5>
+									<input type="text" class="form-control" name = "city" placeholder="City" aria-describedby="basic-addon1" required/></br>
+									<h5>State</h5>
+									<input type="text" class="form-control" name = "state" placeholder="State" aria-describedby="basic-addon1" required/></br>
+									<h5>Phone number</h5>
+									<input type="int" class="form-control" name = "phone_number" placeholder="Phone number (Maximum 9 numbers)" aria-describedby="basic-addon1" maxlength="9" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^19]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+									onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-19]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" required/></br>
+									<h5>Passport number</h5>
+									<input type="text" class="form-control" name = "passport_number"
+									 placeholder="Passport number" aria-describedby="basic-addon1" required/></br>
+									<h5>Passport expiration date</h5>
+									<input type="date" class="form-control" name = "passport_expiration" placeholder="Passport expiration date" aria-describedby="basic-addon1" required/></br>
+									<h5>Passport country</h5>
+									<input type="text" class="form-control" name = "passport_country" placeholder="Passport country" aria-describedby="basic-addon1" required/></br>
+									<h5>Date of birth</h5>
+									<input type="date" class="form-control" name = "date_of_birth" placeholder="Date of birth" aria-describedby="basic-addon1" required/></br>
+
+									<div class="col-lg-6 in-gp-tb">
+										<div class="input-group">
+											<span class="input-group-btn">
+												<input class="btn btn-default" type="submit" value = Register />
+											</span>
+										</div><!-- /input-group -->
+									</div><!-- /.col-lg-6 -->
+								</form>
+							</div>
+
+						<div role="tabpanel" class="tab-pane fade" id="RegisterAsBookingAgent" aria-labelledby="RegisterAsBookingAgent-tab">
+							<form action="/AgentRegisterAuth" method="POST">
+								<h5>Email</h5>
+								<input type="text" class="form-control" name = "email" placeholder="Email" aria-describedby="basic-addon1" required/></br>
+								<h5>Password</h5>
+								<input type="text" class="form-control" name = "password" placeholder="Password" aria-describedby="basic-addon1" required/></br>
+								<h5>Booking Agent ID</h5>
+								<input type="int" class="form-control" name = "booking_agent_id" placeholder="Booking Agent ID (Maximum 9 numbers)" aria-describedby="basic-addon1" maxlength="9" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^19]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"
+								onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-19]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" required/></br>
+								<div class="col-lg-6 in-gp-tb">
+									<div class="input-group">
+										<span class="input-group-btn">
+											<input class="btn btn-default" type="submit" value = Register />
+										</span>
+									</div><!-- /input-group -->
+								</div><!-- /.col-lg-6 -->
+							</form>
+						</div>
+
+						<div role="tabpanel" class="tab-pane fade" id="RegisterAsStaff" aria-labelledby="RegisterAsStaff-tab">
+							<form action="/AirlineStaffRegisterAuth" method="POST">
+								<h5>Username</h5>
+								<input type="text" class="form-control" name = "username" placeholder="Username" aria-describedby="basic-addon1" required/></br>
+								<h5>Password</h5>
+								<input type="text" class="form-control" name = "password" placeholder="Password" aria-describedby="basic-addon1" required/></br>
+								<h5>First name</h5>
+								<input type="int" class="form-control" name = "first_name" placeholder="First name" aria-describedby="basic-addon1" required/></br>
+								<h5>Last name</h5>
+								<input type="int" class="form-control" name = "last_name" placeholder="Last name" aria-describedby="basic-addon1" required/></br>
+								<h5>Date of birth</h5>
+								<input type="date" class="form-control" name = "date_of_birth" placeholder="Date of birth" aria-describedby="basic-addon1" required/></br>
+								<h5>Airline name</h5>
+								<input type="int" class="form-control" name = "airline_name" placeholder="Airline name" aria-describedby="basic-addon1" required/></br>
+								<div class="col-lg-6 in-gp-tb">
+									<div class="input-group">
+										<span class="input-group-btn">
+											<input class="btn btn-default" type="submit" value = Register />
+										</span>
+									</div><!-- /input-group -->
+								</div><!-- /.col-lg-6 -->
+							</form>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% if Success %}
+	<script>
+		alert("Successfully register!");
+	</script>
+	{% endif %}
+	{% if error %}
+	<script>
+		alert("Fail in register");
+	</script>
+	{% endif %}
+<!-- //typography-page -->
+<!-- footer -->
+<div class="footer-copy">
+	<div class="container">
+		<div class="footer-left animated wow slideInUp">
+			<p>Copyright Tianyu Zhang & Jennie Shen.</p>
+		</div>
+	</div>
+</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+</body>
+</html>

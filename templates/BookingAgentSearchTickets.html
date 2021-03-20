@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<!-- 记得写登陆失败的情况！ -->
+<!-- 密码加密 -->
+
+<html>
+<head>
+<title>BookingAgentSearchTickets</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<!-- login-pop-up -->
+<script src="js/menu_jquery.js"></script>
+<!-- //login-pop-up -->
+<!-- animation-effect -->
+<link href="css/animate.min.css" rel="stylesheet">
+<script src="js/wow.min.js"></script>
+<script>
+ new WOW().init();
+</script>
+<!-- //animation-effect -->
+<link href='#css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='#css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<!-- header -->
+<div class="header-top">
+	<div class="container">
+		<div class="header-top-right">
+			<!-- login for customer -->
+			<ul class="nav navbar-nav">
+				<li><a href="/BookingAgentLogout">Logout</a></li>
+			<!-- login for customer -->
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+</div>
+	<div class="header-nav">
+		<!-- personal page tab -->
+		<div class="container">
+			<nav class="navbar navbar-default">
+				<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="/BookingAgentViewMyFlights">View My flights</a></li>
+						<li class="active"><a href="/BookingAgentSearchTickets">Search for flights</a></li>
+						<li><a href="/BookingAgentViewMyCommission">View My Commission</a></li>
+						<li><a href="/BookingAgentViewTopCustomers">View Top Customers</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+<!-- //header -->
+<!--typography-page -->
+	<div class="typo">
+		<div class="container">
+			<form action="/BookingAgentSearchTicketsThroughDateAuth" method="POST">
+			<h2>Search A Flight Through Departure Date</h2>
+			<div class="reservation">
+				 <h5>From</h5>
+				 <div class="section_room">
+							<div class="input-group animated wow slideInUp">
+								<span class="input-group-addon" id="basic-addon1"></span>
+								<input type="text" class="form-control" name = "departure" placeholder="Your Departure" aria-describedby="basic-addon1" required>
+							</div>
+				 </div>
+				 <h5>To</h5>
+				 <div class="section_room">
+							<div class="input-group animated wow slideInUp">
+								<span class="input-group-addon" id="basic-addon1"></span>
+								<input type="text" class="form-control" name = "arrival" placeholder="Your Arrival" aria-describedby="basic-addon1" required>
+							</div>
+				 </div>
+				 <h5>Departure Date</h5>
+				 <div class="section_room">
+ 						 <div class="input-group animated wow slideInUp">
+ 							 <span class="input-group-addon" id="basic-addon1"></span>
+ 							 <input type="date" class="form-control" name = "date" placeholder="Your Departure" aria-describedby="basic-addon1" required>
+ 						 </div>
+ 				</div>
+				</div>
+					<div class="book">
+						<input type="submit" value="Search">
+					</div>
+			</div>
+		</form>
+	<div class="container">
+		<form action="/BookingAgentSearchTicketsThroughFlightNumberAuth" method="POST">
+		</br>
+		</br>
+		<h2>Search A Flight Through Flight number</h2>
+		<div class="reservation">
+			 <h5>Flight number</h5>
+			 <div class="section_room">
+						<div class="input-group animated wow slideInUp">
+							<span class="input-group-addon" id="basic-addon1"></span>
+							<input type="text" class="form-control" name = "FlightNumber" placeholder="Flight Number" aria-describedby="basic-addon1" required>
+						</div>
+			 </div>
+			 <h5>Departure Date</h5>
+ 			<div class="section_room">
+ 					<div class="input-group animated wow slideInUp">
+ 						<span class="input-group-addon" id="basic-addon1"></span>
+ 						<input type="date" class="form-control" name = "DepartureDate" placeholder="Your Departure Date" aria-describedby="basic-addon1" required>
+ 					</div>
+ 		 </div>
+			<h5>Arrival Date</h5>
+			<div class="section_room">
+					<div class="input-group animated wow slideInUp">
+						<span class="input-group-addon" id="basic-addon1"></span>
+						<input type="date" class="form-control" name = "ArrivalDate" placeholder="Your Arrival Date" aria-describedby="basic-addon1" required>
+					</div>
+			</div>
+				<div class="book">
+					<input type="submit" value="Search">
+				</div>
+		</div>
+	</form>
+  </div>
+	<div class="container">
+		<h3 class="title animated wow zoomIn">Flight Information</h3>
+		<div class="grid_3 grid_5 animated wow slideInUp">
+			<div class="bs-docs-example animated wow slideInUp" data-wow-delay=".5s">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Airline name</th>
+							<th>Flight number</th>
+							<th>Depature airport</th>
+							<th>Depature time</th>
+							<th>Arrival airport</th>
+							<th>Arrival time</th>
+							<th>Ticket price</th>
+							<th>Flight status</th>
+							<th>Airplane ID</th>
+							<!-- //how to choose the certain ticket -->
+						</tr>
+					</thead>
+					<tbody>
+						{% for row in rows %}
+						<tr>
+							<td>{{row[0]}}</td>
+							<td>{{row[1]}}</td>
+							<td>{{row[2]}}</td>
+							<td>{{row[3]}}</td>
+							<td>{{row[4]}}</td>
+							<td>{{row[5]}}</td>
+							<td>{{row[6]}}</td>
+							<td>{{row[7]}}</td>
+							<td>{{row[8]}}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+		</div>
+	</div>
+	<div class="container">
+		<h3 class="title animated wow zoomIn">Purchase New Tickets</h3>
+		<form action="/BookingAgentPurchaseTickets" method="POST">
+			<h5>Purchase for:</h5>
+			<input type="text" name = "customer_email" placeholder="Customer's Email" required>
+			<h5>Airline Company</h5>
+			<input type="text" name = "AirlineCompany" placeholder="Airline Company" required>
+			<h5>Flight Number</h5>
+			<input type="text" name = "FlightNumber" placeholder="Flight Number" required>
+			<div class="book">
+				<input type="submit" value="Purchase">
+			</div>
+		</form>
+	</div>
+</div>
+{% if message %}
+<script>
+	alert("Successfully Purchased!");
+</script>
+{% endif %}
+{% if error %}
+<script>
+	alert("Fail in Purchase!");
+</script>
+{% endif %}
+	</div>
+<!-- //typography-page -->
+<!-- footer -->
+<div class="footer-copy">
+	<div class="container">
+		<div class="footer-left animated wow slideInUp">
+			<p>Copyright Tianyu Zhang & Jennie Shen.</p>
+		</div>
+	</div>
+</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>StaffViewMyFlights</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<!-- //js -->
+<!-- login-pop-up -->
+<script src="js/menu_jquery.js"></script>
+<!-- //login-pop-up -->
+<!-- animation-effect -->
+<link href="css/animate.min.css" rel="stylesheet">
+<script src="js/wow.min.js"></script>
+<script>
+ new WOW().init();
+</script>
+<!-- //animation-effect -->
+<link href='#css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='#css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<!-- header -->
+<div class="header-top">
+	<div class="container">
+		<div class="header-top-right">
+			<!-- login for customer -->
+			<ul class="nav navbar-nav">
+				<li><a href="/AirlineStaffLogout">Logout</a></li>
+			<!-- login for customer -->
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+</div>
+	<div class="header-nav">
+		<!-- personal page tab -->
+		<div class="container">
+			<nav class="navbar navbar-default">
+				<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="/StaffViewMyFlights">View My flights</a></li>
+						<li><a href="/StaffCreateNewFlights">Create New Flights</a></li>
+						<li><a href="/StaffChangeStatusofFlights">Change Status of Flights</a></li>
+						<li><a href="/StaffAddAirplane">Add Airplane</a></li>
+						<li><a href="/StaffAddNewAirport">Add Airport</a></li>
+						<li><a href="/StaffViewBookingAgent">View Booking Agent</a></li>
+						<li><a href="/StaffViewFrequentCustomers">View Frequent Customers</a></li>
+						<li><a href="/StaffReports">View Reports</a></li>
+						<li><a href="/StaffComparisonOfRevenueEarned">Comparison Of Revenue Earned</a></li>
+						<li><a href="/StaffViewTopDestinations">Top Destinations</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+<!-- //header -->
+<!--typography-page -->
+<div class="typo">
+	<div class="container">
+		<h3 class="title animated wow zoomIn">View the flights</h3></br></br>
+		<form action="/StaffViewMyFlights_search" method="POST">
+			<div class="form-group" style="float:left; display:flex;width:100%">
+				<label for="departure">From:</label>
+				<p>&ensp;&ensp;</p>
+    		<input type="text" name = "departure" class="input-box" placeholder="Departure">
+				<p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+				<label for="destination">To:</label>
+				<p>&ensp;&ensp;</p>
+    		<input type="text" name = "destination" class="input-box" placeholder="Destination">
+				<p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+				<label for="DepartureDate">Departure Date After:</label>
+				<p>&ensp;&ensp;</p>
+				<input type="date" name = "DepartureDate" class="input-box" placeholder="Departure Date">
+				<p>&ensp;&ensp;&ensp;&ensp;&ensp;</p>
+				<label for="ArrivalDate">Arrival Date Before:</label>
+				<p>&ensp;&ensp;</p>
+				<input type="date" name = "ArrivalDate" class="input-box" placeholder="Arrival Date">
+			</div>
+			<div class="book">
+				<input type="submit" value="Search">
+			</div>
+		</form>
+	</div>
+
+
+
+	<div class="container">
+		<div class="grid_3 grid_5 animated wow slideInUp">
+			<div class="bs-docs-example animated wow slideInUp" data-wow-delay=".5s">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Airline name</th>
+							<th>Flight number</th>
+							<th>Departure airport</th>
+							<th>Departure time</th>
+							<th>Arrival airport</th>
+							<th>Arrival time</th>
+							<th>Ticket price</th>
+							<th>Flight status</th>
+							<th>Airplane ID</th>
+							<!-- //how to choose the certain ticket -->
+						</tr>
+					</thead>
+					<tbody>
+						{% for row in rows1 %}
+						<tr>
+							<td>{{row[0]}}</td>
+							<td>{{row[1]}}</td>
+							<td>{{row[2]}}</td>
+							<td>{{row[3]}}</td>
+							<td>{{row[4]}}</td>
+							<td>{{row[5]}}</td>
+							<td>{{row[6]}}</td>
+							<td>{{row[7]}}</td>
+							<td>{{row[8]}}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<h3 class="title animated wow zoomIn">View customers of a flight</h3></br></br>
+	<form action="/StaffViewMyFlights_flightNumber" method="POST">
+		<div class="form-group" style="float:left; display:flex;width:100%">
+			<label for="flight_number">Flight number:</label>
+			<p>&ensp;&ensp;</p>
+			<input type="text" name = "flight_number" class="input-box" placeholder="Flight number" required>
+		</div>
+		<div class="book">
+			<input type="submit" value="Search">
+		</div>
+	</form>
+</div>
+
+<div class="container">
+	<div class="grid_3 grid_5 animated wow slideInUp">
+		<div class="bs-docs-example animated wow slideInUp" data-wow-delay=".5s">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Email</th>
+						<th>Name</th>
+						<th>Phone Number</th>
+						<!-- //how to choose the certain ticket -->
+					</tr>
+				</thead>
+				<tbody>
+					{% for row in rows2 %}
+					<tr>
+						<td>{{row[0]}}</td>
+						<td>{{row[1]}}</td>
+						<td>{{row[2]}}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+	</div>
+</div>
+</div>
+<!-- //typography-page -->
+<!-- footer -->
+<div class="footer-copy">
+	<div class="container">
+		<div class="footer-left animated wow slideInUp">
+			<p>Copyright Tianyu Zhang & Jennie Shen.</p>
+		</div>
+	</div>
+</div>
+<!-- //footer -->
+<!-- for bootstrap working -->
+	<script src="js/bootstrap.js"></script>
+<!-- //for bootstrap working -->
+	<script>
+
+	</script>
+
+</body>
+</html>
